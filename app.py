@@ -35,7 +35,7 @@ def preprocess_image_cnn(uploaded_file):
     return img_array
 
 if uploaded_file is not None:
-    st.image(uploaded_file, caption="Gambar yang diupload", use_container_width=True
+    st.image(uploaded_file, caption="Gambar yang diupload", use_container_width=True)
     img_array = preprocess_image_cnn(uploaded_file)
     preds = model.predict(img_array)
     
