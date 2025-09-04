@@ -5,7 +5,7 @@ from PIL import Image
 import os
 
 
-st.title("🍔🥗🍣 Food-101 Image Classification")
+st.title("🍔🥗🍣 Klasifikasi Gambar Makanan")
 
 
 MODEL_URL = "https://github.com/zahratalitha/food101/raw/main/cnn_food101_model%20(1).h5"
