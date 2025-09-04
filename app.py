@@ -25,7 +25,7 @@ st.sidebar.header("📤 Upload Gambar")
 uploaded_file = st.sidebar.file_uploader("Pilih gambar makanan", type=["jpg", "jpeg", "png"])
 
 
-IMG_HEIGHT, IMG_WIDTH = 128,128
+IMG_HEIGHT, IMG_WIDTH = 224,224
 def preprocess_image_cnn(uploaded_file):
     img = Image.open(uploaded_file).convert("RGB")
     img = img.resize((IMG_WIDTH, IMG_HEIGHT))
