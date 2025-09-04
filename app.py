@@ -5,13 +5,21 @@ from PIL import Image
 import os
 
 
-st.title("🍔🥗🍣 Food-101 Image Classification (CNN dari Nol)")
+st.title("🍔🥗🍣 Food-101 Image Classification")
 
 
+MODEL_URL = "https://github.com/zahratalitha/food101/raw/main/cnn_food101_model%20(1).h5"
 MODEL_PATH = "cnn_food101_model.h5"
-model = tf.keras.models.load_model(MODEL_PATH)
-st.success("✅ Model CNN berhasil dimuat!")
 
+if not os.path.exists(MODEL_PATH):
+    st.write("📥 Mengunduh model dari GitHub...")
+    r = requests.get(MODEL_URL)
+    if r.status_code == 200:
+        with open(MODEL_PATH, "wb") as f:
+            f.write(r.content)
+        st.success("✅ Model berhasil diunduh!")
+    else:
+        st.error("❌ Gagal mendownload model. Periksa URL raw GitHub.")
 
 st.sidebar.header("📤 Upload Gambar")
 uploaded_file = st.sidebar.file_uploader("Pilih gambar makanan", type=["jpg", "jpeg", "png"])
