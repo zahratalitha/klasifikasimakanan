@@ -14,7 +14,7 @@ st.write("Upload gambar makanan untuk mendapatkan prediksi top-1 dan top-5 berda
 # -----------------------------
 # Download model dari GitHub
 # -----------------------------
-MODEL_URL = "https://github.com/zahratalitha/klasifikasimakanan/blob/01050ae2ae03853595b82f54d5b7678a47314a67/cnn_food101_model.h5"
+MODEL_URL = "https://raw.githubusercontent.com/zahratalitha/klasifikasimakanan/refs/heads/main/cnn_food101_model.h5"
 MODEL_PATH = "cnn_food101_model.h5"
 
 if not os.path.exists(MODEL_PATH):
