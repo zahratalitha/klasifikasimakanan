@@ -25,18 +25,17 @@ st.sidebar.header("📤 Upload Gambar")
 uploaded_file = st.sidebar.file_uploader("Pilih gambar makanan", type=["jpg", "jpeg", "png"])
 
 
-IMG_HEIGHT, IMG_WIDTH = 224,224
+IMG_HEIGHT, IMG_WIDTH = 128, 128  
 def preprocess_image_cnn(uploaded_file):
     img = Image.open(uploaded_file).convert("RGB")
     img = img.resize((IMG_WIDTH, IMG_HEIGHT))
     img_array = tf.keras.utils.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
-    img_array = img_array / 255.0  # normalisasi 0-1
+    img_array = img_array / 255.0
     return img_array
 
 if uploaded_file is not None:
-    st.image(uploaded_file, caption="Gambar yang diupload", use_column_width=True)
-    
+    st.image(uploaded_file, caption="Gambar yang diupload", use_container_width=True
     img_array = preprocess_image_cnn(uploaded_file)
     preds = model.predict(img_array)
     
